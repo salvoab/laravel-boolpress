@@ -25,7 +25,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -36,7 +36,12 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required'
+        ]);
+        Article::create($validatedData); // prende i dati validati e li salva nella tabella articles
+        return redirect()->route('articles.index');
     }
 
     /**

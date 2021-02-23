@@ -8,7 +8,7 @@ Articles
     <div class="jumbotron">
         <h1 class="display-3">Tutti gli articoli del blog</h1>
         <p class="lead">Un elenco di tutti gli articoli scritti in questo blog</p>
-        <a class="btn btn-primary" href="{{ route('articles.create') }}" role="button">Scrivi un article</a>
+        <a class="btn btn-primary" href="{{ route('articles.create') }}" role="button">Scrivi un articolo</a>
     </div>
     
     <table class="table">
