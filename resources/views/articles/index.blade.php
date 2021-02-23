@@ -54,7 +54,7 @@ Articles
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
                                         
-                                        <form action="{{ route('articles.destroy', ['article' => $article->id]) }}" method="article">
+                                        <form action="{{ route('articles.destroy', ['article' => $article->id]) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash fa-lg fa-fw"></i>Cancella</button>
