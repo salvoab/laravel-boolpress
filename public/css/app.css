@@ -10944,10 +10944,6 @@ a.text-dark:focus {
   }
 }
 
-.nav-link {
-  font-size: 20px;
-}
-
 td.body-preview {
   /*Massima dimensione di 50 caratteri, superati 50 caratteri
   il testo viene nascosto e vengono mostrati 3 puntini ... */
