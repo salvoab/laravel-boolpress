@@ -19,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('articles', 'API\ArticleController@index');
+Route::get('categories', 'API\CategoryController@index');
