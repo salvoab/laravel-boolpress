@@ -22,6 +22,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('articles_api') }}">Articoli da API</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('categories_api') }}">Categorie da API</a>
+                    </li>
                 </ul>
             </nav>
         </header>

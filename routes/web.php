@@ -17,3 +17,4 @@ Route::get('/', 'PageController@index')->name('home');
 
 Route::resource('articles', 'ArticleController');
 Route::get('articles_api', 'PageController@articles_api')->name('articles_api');
+Route::get('categories_api', 'PageController@categories_api')->name('categories_api');
