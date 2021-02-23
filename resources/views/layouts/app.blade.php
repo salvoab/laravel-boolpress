@@ -19,6 +19,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('articles.index') }}">Articles</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('articles_api') }}">Articles from API</a>
+                    </li>
                 </ul>
             </nav>
         </header>
