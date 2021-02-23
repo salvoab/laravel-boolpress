@@ -17,10 +17,10 @@
                         <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('articles.index') }}">Articles</a>
+                        <a class="nav-link" href="{{ route('articles.index') }}">Articoli</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('articles_api') }}">Articles from API</a>
+                        <a class="nav-link" href="{{ route('articles_api') }}">Articoli da API</a>
                     </li>
                 </ul>
             </nav>
