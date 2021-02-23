@@ -6,17 +6,18 @@
 
 @section('content')
     <div class="jumbotron">
-        <h1 class="display-3">Scrivi un articolo</h1>
-        <p class="lead">Scrivi un articolo da inserire nel blog</p>
+        <h1 class="display-3">Modifica questo articolo</h1>
+        <p class="lead">Modifica l'articolo dal titolo: {{$article->title}}</p>
     </div>
     
     @include('partials.errors')
 
-    <form action="{{ route('articles.store') }}" method="post">
+    <form action="{{ route('articles.update', ['article' => $article->id]) }}" method="post">
         @csrf
+        @method('PUT')
         <div class="form-group">
           <label for="title">Titolo</label>
-          <input type="text" class="form-control" name="title" id="title" placeholder="Titolo" required value="{{ old('title') }}">
+          <input type="text" class="form-control" name="title" id="title" placeholder="Titolo" required value="{{ $article->title }}">
         </div>
         @error('title')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -24,7 +25,7 @@
 
         <div class="form-group">
           <label for="body">Articolo</label>
-          <textarea class="form-control" name="body" id="body" rows="3" required>{{ old('body') }}</textarea>
+          <textarea class="form-control" name="body" id="body" rows="3" required>{{ $article->body }}</textarea>
         </div>
         @error('body')
             <div class="alert alert-danger">{{ $message }}</div>
