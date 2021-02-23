@@ -25,6 +25,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('categories_api') }}">Categorie da API</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('tags_api') }}">Tag da API</a>
+                    </li>
                 </ul>
             </nav>
         </header>

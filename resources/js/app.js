@@ -22,6 +22,7 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('article-component', require('./components/ArticleComponent.vue').default);
 Vue.component('category-component', require('./components/CategoryComponent.vue').default);
+Vue.component('tag-component', require('./components/TagComponent.vue').default);
 
 
 /**
