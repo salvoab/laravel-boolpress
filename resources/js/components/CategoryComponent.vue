@@ -1,5 +1,7 @@
 <template>
     <div class="container">
+        <h1 class="text-center">Tutte le categorie ricevute tramite API</h1>
+
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card" v-for="category in categories" :key="category.id">
