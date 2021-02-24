@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PageController@index')->name('home');
 
 Route::resource('articles', 'ArticleController');
+Route::resource('categories', 'CategoryController');
+
+//Rotte per views da api
 Route::get('articles_api', 'PageController@articles_api')->name('articles_api');
 Route::get('categories_api', 'PageController@categories_api')->name('categories_api');
 Route::get('tags_api', 'PageController@tags_api')->name('tags_api');

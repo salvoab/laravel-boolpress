@@ -1,64 +1,64 @@
 @extends('layouts.app')
 
 @section('title')
-Articles
+Categorie
 @endsection
 
 @section('content')
     <div class="jumbotron">
-        <h1 class="display-3">Tutti gli articoli del blog</h1>
-        <p class="lead">Un elenco di tutti gli articoli scritti in questo blog</p>
-        <a class="btn btn-primary" href="{{ route('articles.create') }}" role="button">Scrivi un articolo</a>
+        <h1 class="display-3">Tutte le categorie del blog</h1>
+        <p class="lead">Un elenco di tutte le categorie degli articoli scritti in questo blog</p>
+        <a class="btn btn-primary" href="{{ route('categories.create') }}" role="button">Aggiungi una categoria</a>
     </div>
     
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Titolo</th>
-                <th>Estratto dell'Articolo</th>
-                <th>Creato il</th>
-                <th>Modificato il</th>
+                <th>Nome</th>
+                <th>Estratto della descrizione</th>
+                <th>Creata il</th>
+                <th>Modificata il</th>
                 <th>Azione</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($articles as $article)
+            @foreach($categories as $category)
                 <tr>
-                    <td>{{ $article->id }}</td>
-                    <td>{{ $article->title }}</td>
-                    <td class="body-preview">{{ $article->body }}</td>
-                    <td>{{ $article->created_at }}</td>
-                    <td>{{ $article->updated_at }}</td>
+                    <td>{{ $category->id }}</td>
+                    <td>{{ $category->name }}</td>
+                    <td class="body-preview">{{ $category->description }}</td>
+                    <td>{{ $category->created_at }}</td>
+                    <td>{{ $category->updated_at }}</td>
                     <td class="d-flex justify-content-between"> 
-                        <a class="btn btn-primary" href="{{ route('articles.show', ['article' => $article->id]) }}">
+                        <a class="btn btn-primary" href="{{ route('categories.show', ['category' => $category->id]) }}">
                             <i class="fas fa-eye fa-lg fa-fw"></i> Visualizza
                         </a>
-                        <a class="btn btn-secondary" href="{{ route('articles.edit', ['article' => $article->id]) }}">
+                        <a class="btn btn-secondary" href="{{ route('categories.edit', ['category' => $category->id]) }}">
                             <i class="fas fa-pen fa-lg fa-fw"></i> Modifica
                         </a>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{ $article->id }}">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{ $category->id }}">
                             <i class="fas fa-trash fa-lg fa-fw"></i> Cancella
                         </button>
                         
                         <!-- Modal -->
-                        <div class="modal fade" id="delete-modal-{{ $article->id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitle-{{ $article->id }}" aria-hidden="true">
+                        <div class="modal fade" id="delete-modal-{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitle-{{ $category->id }}" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title">Cancella Definitivamente il article</h5>
+                                        <h5 class="modal-title">Cancella Definitivamente la categoria</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p>Sei sicuro di voler cancellare definitivamente il article con<br>ID: {{ $article->id }} e TITOLO: '{{ $article->title }}' ?</p>
+                                        <p>Sei sicuro di voler cancellare definitivamente la categoria con<br>ID: {{ $category->id }} e Nome: '{{ $category->name }}' ?</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
                                         
-                                        <form action="{{ route('articles.destroy', ['article' => $article->id]) }}" method="post">
+                                        <form action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"><i class="fas fa-trash fa-lg fa-fw"></i>Cancella</button>
