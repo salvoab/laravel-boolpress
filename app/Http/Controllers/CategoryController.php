@@ -25,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('categories.create');
     }
 
     /**
@@ -36,7 +36,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            "name" => "required",
+            "description" => "required",
+        ]);
+        Category::create($validatedData);
+        return redirect()->route('categories.index');
     }
 
     /**
