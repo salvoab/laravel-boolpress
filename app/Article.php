@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['title', 'body', 'category_id'];
 
     //Article è in relazione Many to One con Category. Article belongsTo one Category
     public function category()

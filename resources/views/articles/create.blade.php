@@ -31,8 +31,8 @@
         @enderror
 
         <div class="select-wrapper">
-            <label for="category">Categoria dell'articolo</label>
-            <select name="category" id="category">
+            <label for="category_id">Categoria dell'articolo</label>
+            <select name="category_id" id="category_id">
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
