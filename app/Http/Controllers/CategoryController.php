@@ -97,7 +97,7 @@ class CategoryController extends Controller
         } catch (\Illuminate\Database\QueryException $e) {
             $errorMessage = "Impossibile cancellare la categoria di nome: $category->name, perché collegata a degli articoli";
             $backTo = "categories.index";
-            return view('message', compact('errorMessage', 'backTo'));
+            return view('error_message', compact('errorMessage', 'backTo'));
         }
     }
 }
