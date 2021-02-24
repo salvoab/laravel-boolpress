@@ -26,7 +26,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $categories = Category::all();
+        return view('articles.create', compact('categories'));
     }
 
     /**

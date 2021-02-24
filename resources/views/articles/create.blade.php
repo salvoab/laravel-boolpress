@@ -30,6 +30,15 @@
             <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
+        <div class="select-wrapper">
+            <label for="category">Categoria dell'articolo</label>
+            <select name="category" id="category">
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary">Invia</button>
     </form>
     
