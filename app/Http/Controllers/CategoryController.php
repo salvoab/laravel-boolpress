@@ -91,6 +91,13 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        try {
+            $category->delete();
+            return redirect()->route('categories.index');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $errorMessage = "Impossibile cancellare la categoria di nome: $category->name, perché collegata a degli articoli";
+            $backTo = "categories.index";
+            return view('message', compact('errorMessage', 'backTo'));
+        }
     }
 }
