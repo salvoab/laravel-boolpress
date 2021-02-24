@@ -34,12 +34,12 @@ Articles
                             <i class="fas fa-pen fa-lg fa-fw"></i> Modifica
                         </a>
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{ $article->id }}">
                             <i class="fas fa-trash fa-lg fa-fw"></i> Cancella
                         </button>
                         
                         <!-- Modal -->
-                        <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                        <div class="modal fade" id="delete-modal-{{ $article->id }}" tabindex="-1" role="dialog" aria-labelledby="modelTitle-{{ $article->id }}" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
