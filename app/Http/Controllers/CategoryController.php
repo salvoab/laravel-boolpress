@@ -37,7 +37,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            "name" => "required",
+            "name" => "required|unique:categories",
             "description" => "required",
         ]);
         Category::create($validatedData);
@@ -76,7 +76,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $validatedData = $request->validate([
-            "name" => "required",
+            "name" => "required|unique:categories",
             "description" => "required",
         ]);
         $category->update($validatedData);
