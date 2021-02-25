@@ -1,22 +1,18 @@
 <template>
-    <div class="container">
-        <h1 class="text-center">Tutte le categorie ricevute tramite API</h1>
+    <div>
+        <h2 class="text-center">Tutte le categorie</h2>
 
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card" v-for="category in categories" :key="category.id">
-                    <div class="card-header">Nome Categoria: {{ category.name }}</div>
+        <div class="card" v-for="category in categories" :key="category.id">
+            <div class="card-header">Nome Categoria: {{ category.name }}</div>
 
-                    <div class="card-body">
-                        <p>Descrizione: {{ category.description }} </p>
-                    </div>
-
-                    <div class="card-footer">
-                        Creata il: {{ new Date(category.created_at).toLocaleString('it') }}
-                    </div>
-                </div>
+            <div class="card-body">
+                <p>Descrizione: {{ category.description }} </p>
             </div>
-        </div>
+
+            <div class="card-footer">
+                Creata il: {{ new Date(category.created_at).toLocaleString('it') }}
+            </div>
+        </div>   
     </div>
 </template>
 

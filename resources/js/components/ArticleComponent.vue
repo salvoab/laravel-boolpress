@@ -1,20 +1,16 @@
 <template>
-    <div class="container">
+    <div>
         <h1 class="text-center">Tutti gli articoli ricevuti tramite API</h1>
-
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card" v-for="article in articles" :key="article.id">
-                    <div class="card-header">{{ article.title }}</div>
-
-                    <div class="card-body">
-                        {{ article.body }}
-                    </div>
-
-                    <div class="card-footer">
-                        Creato il: {{ new Date(article.created_at).toLocaleString('it') }}
-                    </div>
-                </div>
+  
+        <div class="card" v-for="article in articles" :key="article.id">
+            <div class="card-header">{{ article.title }}</div>
+        
+            <div class="card-body">
+                {{ article.body }}
+            </div>
+            
+            <div class="card-footer">
+                Creato il: {{ new Date(article.created_at).toLocaleString('it') }}
             </div>
         </div>
     </div>

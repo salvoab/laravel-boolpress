@@ -1973,10 +1973,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2006,10 +2002,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -2090,10 +2082,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -38527,42 +38515,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h1", { staticClass: "text-center" }, [
-      _vm._v("Tutti gli articoli ricevuti tramite API")
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "div",
-        { staticClass: "col-md-8" },
-        _vm._l(_vm.articles, function(article) {
-          return _c("div", { key: article.id, staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v(_vm._s(article.title))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    " +
-                  _vm._s(article.body) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-footer" }, [
-              _vm._v(
-                "\n                    Creato il: " +
-                  _vm._s(new Date(article.created_at).toLocaleString("it")) +
-                  "\n                "
-              )
-            ])
+  return _c(
+    "div",
+    [
+      _c("h1", { staticClass: "text-center" }, [
+        _vm._v("Tutti gli articoli ricevuti tramite API")
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.articles, function(article) {
+        return _c("div", { key: article.id, staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v(_vm._s(article.title))
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm._v("\n            " + _vm._s(article.body) + "\n        ")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-footer" }, [
+            _vm._v(
+              "\n            Creato il: " +
+                _vm._s(new Date(article.created_at).toLocaleString("it")) +
+                "\n        "
+            )
           ])
-        }),
-        0
-      )
-    ])
-  ])
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38586,40 +38567,35 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h1", { staticClass: "text-center" }, [
-      _vm._v("Tutte le categorie ricevute tramite API")
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "div",
-        { staticClass: "col-md-8" },
-        _vm._l(_vm.categories, function(category) {
-          return _c("div", { key: category.id, staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Nome Categoria: " + _vm._s(category.name))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("p", [
-                _vm._v("Descrizione: " + _vm._s(category.description) + " ")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-footer" }, [
-              _vm._v(
-                "\n                    Creata il: " +
-                  _vm._s(new Date(category.created_at).toLocaleString("it")) +
-                  "\n                "
-              )
+  return _c(
+    "div",
+    [
+      _c("h2", { staticClass: "text-center" }, [_vm._v("Tutte le categorie")]),
+      _vm._v(" "),
+      _vm._l(_vm.categories, function(category) {
+        return _c("div", { key: category.id, staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Nome Categoria: " + _vm._s(category.name))
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", [
+              _vm._v("Descrizione: " + _vm._s(category.description) + " ")
             ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-footer" }, [
+            _vm._v(
+              "\n            Creata il: " +
+                _vm._s(new Date(category.created_at).toLocaleString("it")) +
+                "\n        "
+            )
           ])
-        }),
-        0
-      )
-    ])
-  ])
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38690,38 +38666,33 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("h1", { staticClass: "text-center" }, [
-      _vm._v("Tutti i tag ricevuti tramite API")
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row justify-content-center" }, [
-      _c(
-        "div",
-        { staticClass: "col-md-8" },
-        _vm._l(_vm.tags, function(tag) {
-          return _c("div", { key: tag.id, staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Nome Tag: " + _vm._s(tag.name))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _c("p", [_vm._v("Descrizione: " + _vm._s(tag.description) + " ")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-footer" }, [
-              _vm._v(
-                "\n                    Creato il: " +
-                  _vm._s(new Date(tag.created_at).toLocaleString("it")) +
-                  "\n                "
-              )
-            ])
+  return _c(
+    "div",
+    [
+      _c("h2", { staticClass: "text-center" }, [_vm._v("Tutti i tag")]),
+      _vm._v(" "),
+      _vm._l(_vm.tags, function(tag) {
+        return _c("div", { key: tag.id, staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Nome Tag: " + _vm._s(tag.name))
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("p", [_vm._v("Descrizione: " + _vm._s(tag.description) + " ")])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-footer" }, [
+            _vm._v(
+              "\n            Creato il: " +
+                _vm._s(new Date(tag.created_at).toLocaleString("it")) +
+                "\n        "
+            )
           ])
-        }),
-        0
-      )
-    ])
-  ])
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

@@ -1,20 +1,16 @@
 <template>
-    <div class="container">
-        <h1 class="text-center">Tutti i tag ricevuti tramite API</h1>
+    <div>
+        <h2 class="text-center">Tutti i tag</h2>
+     
+        <div class="card" v-for="tag in tags" :key="tag.id">
+            <div class="card-header">Nome Tag: {{ tag.name }}</div>
 
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card" v-for="tag in tags" :key="tag.id">
-                    <div class="card-header">Nome Tag: {{ tag.name }}</div>
+            <div class="card-body">
+                <p>Descrizione: {{ tag.description }} </p>
+            </div>
 
-                    <div class="card-body">
-                        <p>Descrizione: {{ tag.description }} </p>
-                    </div>
-
-                    <div class="card-footer">
-                        Creato il: {{ new Date(tag.created_at).toLocaleString('it') }}
-                    </div>
-                </div>
+            <div class="card-footer">
+                Creato il: {{ new Date(tag.created_at).toLocaleString('it') }}
             </div>
         </div>
     </div>
