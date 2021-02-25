@@ -41,7 +41,7 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required|integer'
         ]);
         Article::create($validatedData); // prende i dati validati e li salva nella tabella articles
         return redirect()->route('articles.index');
@@ -82,7 +82,7 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required|integer'
         ]);
         $article->update($validatedData);
         return redirect()->route('articles.index');
