@@ -104,7 +104,25 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        $article->delete();
+        $tagsId = $this->extractIds($article->tags);
+        //dd($tagsId);
+        $article->tags()->detach($tagsId); // Rimuovo i record nella tabella article_tag inerenti all'articolo che sto per cancellare
+        $article->delete(); // Cancello l'articolo dal database
         return redirect()->route('articles.index');
+    }
+
+    /**
+     * Take a collection of models and return an array of their ids
+     * 
+     * @param \Illuminate\Database\Eloquent\Collection $models
+     * @return array Array containing the models' ids 
+    */
+    private function extractIds($models)
+    {
+        $ids = [];
+        foreach($models as $model){
+            $ids[] = $model->id;
+        }
+        return $ids;
     }
 }
