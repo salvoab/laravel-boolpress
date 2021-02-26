@@ -11,7 +11,7 @@ Categoria #{{$category->id}}
     <a href="{{ route('categories.edit', ['category' => $category->id]) }}" class="btn btn-primary">Modifica questa categoria</a>
   </div>  
   <h2>Descrizione</h2>
-  <p>{{$category->description}}</p>
+  <p class="lead">{{$category->description}}</p>
     
 
 @endsection
