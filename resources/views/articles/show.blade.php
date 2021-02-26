@@ -12,7 +12,7 @@ Articolo #{{$article->id}}
     <p class="lead">Tags: 
       @if(count($article->tags) > 0)
         @foreach($article->tags as $tag)
-          <span>{{$tag->name}}</span>
+          <a href="{{ route('tags.show', $tag) }}">{{$tag->name}}</a>
         @endforeach
       @else
         <span>Non ci sono tag associati a questo post</span>
