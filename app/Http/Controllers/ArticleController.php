@@ -44,7 +44,7 @@ class ArticleController extends Controller
             'title' => 'required|max:255',
             'body' => 'required',
             'category_id' => 'required|exists:categories,id',
-            'tags' => 'exists:categories,id'
+            'tags' => 'exists:tags,id'
         ]);
         Article::create($validatedData); // prende i dati validati e li salva nella tabella articles
         $article = Article::orderBy('id', 'desc')->first();
@@ -88,8 +88,8 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
-            'category_id' => 'required|integer',
-            'tags' => 'exists:categories,id'
+            'category_id' => 'required|exists:categories,id',
+            'tags' => 'exists:tags,id'
         ]);
         $article->update($validatedData);
         $article->tags()->sync($request->tags);
