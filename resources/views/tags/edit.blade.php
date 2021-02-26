@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
 @section('title')
-Modifica categoria
+Modifica tag
 @endsection
 
 @section('content')
     <div class="jumbotron">
-        <h1 class="display-3">Modifica la categoria: {{ $category->name }}</h1>
+        <h1 class="display-3">Modifica il tag: {{ $tag->name }}</h1>
     </div>
     
     @include('partials.errors')
 
-    <form action="{{ route('categories.update', ['category' => $category->id]) }}" method="post">
+    <form action="{{ route('tags.update', ['tag' => $tag->id]) }}" method="post">
         @csrf
         @method('PUT')
 
         <div class="form-group">
           <label for="name">Nome</label>
-          <input type="text" class="form-control" name="name" id="name" placeholder="Titolo" required value="{{ $category->name }}">
+          <input type="text" class="form-control" name="name" id="name" placeholder="Titolo" required value="{{ $tag->name }}">
         </div>
         @error('name')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -25,7 +25,7 @@ Modifica categoria
 
         <div class="form-group">
           <label for="description">Descrizione</label>
-          <textarea class="form-control" name="description" id="description" rows="3" required>{{ $category->description }}</textarea>
+          <textarea class="form-control" name="description" id="description" rows="3" required>{{ $tag->description }}</textarea>
         </div>
         @error('description')
             <div class="alert alert-danger">{{ $message }}</div>

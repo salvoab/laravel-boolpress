@@ -64,7 +64,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('tags.edit', compact('tag'));
     }
 
     /**
@@ -76,7 +76,18 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'description' => 'required'
+        ]);
+        try {
+            $tag->update($validatedData);
+            return redirect()->route('tags.index');
+        } catch (\Illuminate\Database\QueryException $e) {
+            $errorMessage = "Hai modificato il nome del tag, ma il nome: $tag->name è già presente. Usa un altro nome";
+            $backTo = "tags.index";
+            return view('error_message', compact('errorMessage', 'backTo'));
+        }
     }
 
     /**
