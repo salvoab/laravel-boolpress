@@ -13,4 +13,10 @@ class Article extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    //Article è in relazione Many to Many con Tag
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }
