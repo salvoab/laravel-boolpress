@@ -98,6 +98,24 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $articlesIds = $this->extractIds($tag->articles);
+        $tag->articles()->detach($articlesIds); // Rimuovo i record nella tabella article_tag inerenti al tag che sto per cancellare
+        $tag->delete(); // Cancello il tag dal database
+        return redirect()->route('tags.index');
+    }
+
+    /**
+     * Take a collection of models and return an array of their ids
+     * 
+     * @param \Illuminate\Database\Eloquent\Collection $models
+     * @return array Array containing the models' ids 
+    */
+    private function extractIds($models)
+    {
+        $ids = [];
+        foreach($models as $model){
+            $ids[] = $model->id;
+        }
+        return $ids;
     }
 }
