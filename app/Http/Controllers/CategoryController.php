@@ -79,8 +79,15 @@ class CategoryController extends Controller
             "name" => "required",
             "description" => "required",
         ]);
-        $category->update($validatedData);
-        return redirect()->route('categories.show', $category);
+        
+        try {
+            $category->update($validatedData);
+            return redirect()->route('categories.show', $category); 
+        } catch (\Illuminate\Database\QueryException $e) {
+            $errorMessage = "Hai cercato di modificare il nome della categoria, ma il nome: $category->name è già presente. Usa un altro nome";
+            $backTo = "categories.index";
+            return view('error_message', compact('errorMessage', 'backTo'));
+        }
     }
 
     /**
