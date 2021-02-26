@@ -72,7 +72,8 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         $categories = Category::all();
-        return view('articles.edit', compact('article', 'categories'));
+        $tags = Tag::all();
+        return view('articles.edit', compact('article', 'categories', 'tags'));
     }
 
     /**
@@ -87,9 +88,11 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
-            'category_id' => 'required|integer'
+            'category_id' => 'required|integer',
+            'tags' => 'exists:categories,id'
         ]);
         $article->update($validatedData);
+        $article->tags()->sync($request->tags);
         return redirect()->route('articles.index');
     }
 
