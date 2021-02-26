@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -27,7 +28,8 @@ class ArticleController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('articles.create', compact('categories'));
+        $tags = Tag::all();
+        return view('articles.create', compact('categories', 'tags'));
     }
 
     /**
@@ -41,9 +43,12 @@ class ArticleController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'body' => 'required',
-            'category_id' => 'required|integer'
+            'category_id' => 'required|exists:categories,id',
+            'tags' => 'exists:categories,id'
         ]);
         Article::create($validatedData); // prende i dati validati e li salva nella tabella articles
+        $article = Article::orderBy('id', 'desc')->first();
+        $article->tags()->attach($request->tags);
         return redirect()->route('articles.index');
     }
 

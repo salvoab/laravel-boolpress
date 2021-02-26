@@ -21,7 +21,7 @@ Articolo #{{$article->id}}
     <a href="{{ route('articles.edit', ['article' => $article->id]) }}" class="btn btn-primary">Modifica questo articolo</a>
   </div>  
     
-  <p>{{$article->body}}</p>
+  <p class="lead">{{$article->body}}</p>
     
 
 @endsection
