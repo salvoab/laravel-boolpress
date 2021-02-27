@@ -8,6 +8,10 @@ Errore
 <div class="jumbotron">
     <h1 class="display-3">Ops, Errore...</h1>
     <p class="lead">{{ $errorMessage }}</p>
-    <a class="btn btn-primary" href="{{ route($backTo) }}">Indietro</a>
+    @if($routeData)
+        <a class="btn btn-primary" href="{{ route($backTo, $routeData) }}">Indietro</a>
+    @else
+        <a class="btn btn-primary" href="{{ route($backTo) }}">Indietro</a>
+    @endif
 </div>
 @endsection

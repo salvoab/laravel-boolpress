@@ -85,8 +85,9 @@ class CategoryController extends Controller
             return redirect()->route('categories.show', $category); 
         } catch (\Illuminate\Database\QueryException $e) {
             $errorMessage = "Hai cercato di modificare il nome della categoria, ma il nome: $category->name è già presente. Usa un altro nome";
-            $backTo = "categories.index";
-            return view('error_message', compact('errorMessage', 'backTo'));
+            $backTo = "categories.edit";
+            $routeData = $category;
+            return view('error_message', compact('errorMessage', 'backTo', 'routeData'));
         }
     }
 
@@ -104,7 +105,8 @@ class CategoryController extends Controller
         } catch (\Illuminate\Database\QueryException $e) {
             $errorMessage = "Impossibile cancellare la categoria di nome: $category->name, perché collegata a degli articoli";
             $backTo = "categories.index";
-            return view('error_message', compact('errorMessage', 'backTo'));
+            $routeData = null;
+            return view('error_message', compact('errorMessage', 'backTo', 'routeData'));
         }
     }
 }

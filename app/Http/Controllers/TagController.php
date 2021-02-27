@@ -85,8 +85,9 @@ class TagController extends Controller
             return redirect()->route('tags.index');
         } catch (\Illuminate\Database\QueryException $e) {
             $errorMessage = "Hai modificato il nome del tag, ma il nome: $tag->name è già presente. Usa un altro nome";
-            $backTo = "tags.index";
-            return view('error_message', compact('errorMessage', 'backTo'));
+            $backTo = "tags.edit";
+            $routeData = $tag;
+            return view('error_message', compact('errorMessage', 'backTo', 'routeData'));
         }
     }
 
