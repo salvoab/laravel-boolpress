@@ -11,7 +11,9 @@ Articles
         <a class="btn btn-primary" href="{{ route('articles.create') }}" role="button">Scrivi un articolo</a>
     </div>
     
-    @if($articles)
+    @if($articles == null)
+        <h2>Impossibile utilizzare il database, contattare l'amministratore di sistema</h2>
+    @elseif(count($articles) > 0)
     <table class="table">
         <thead>
             <tr>

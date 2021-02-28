@@ -11,7 +11,9 @@ Categorie
         <a class="btn btn-primary" href="{{ route('categories.create') }}" role="button">Aggiungi una categoria</a>
     </div>
     
-    @if($categories)
+    @if($categories == null)
+        <h2>Impossibile utilizzare il database, contattare l'amministratore di sistema</h2>
+    @elseif(count($categories) > 0)
     <table class="table">
         <thead>
             <tr>

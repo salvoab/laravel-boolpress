@@ -11,7 +11,9 @@ Tag
         <a class="btn btn-primary" href="{{ route('tags.create') }}" role="button">Aggiungi un tag</a>
     </div>
     
-    @if($tags)
+    @if($tags == null)
+        <h2>Impossibile utilizzare il database, contattare l'amministratore di sistema</h2>
+    @elseif(count($tags) > 0)
     <table class="table">
         <thead>
             <tr>
