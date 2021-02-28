@@ -16,7 +16,11 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::latest()->get();
+        try {
+            $articles = Article::latest()->get();
+        } catch (\Illuminate\Database\QueryException $e) {
+            $articles = null;
+        }
         return view('articles.index', compact('articles'));
     }
 
@@ -27,8 +31,16 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        $tags = Tag::all();
+        try {
+            $categories = Category::all();
+        } catch (\Illuminate\Database\QueryException $e) {
+            $categories = null;
+        }
+        try {
+            $tags = Tag::all();
+        } catch (\Illuminate\Database\QueryException $e) {
+            $tags = null;
+        }
         return view('articles.create', compact('categories', 'tags'));
     }
 

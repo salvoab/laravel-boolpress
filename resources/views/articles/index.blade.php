@@ -11,6 +11,7 @@ Articles
         <a class="btn btn-primary" href="{{ route('articles.create') }}" role="button">Scrivi un articolo</a>
     </div>
     
+    @if($articles)
     <table class="table">
         <thead>
             <tr>
@@ -72,5 +73,9 @@ Articles
             @endforeach
         </tbody>
     </table>
+    @else
+        <h2>Non ci sono articoli nel blog</h2>
+        <p class="lead">Prima di scrivere un articolo si consiglia di visionare le categorie per accertarsi di avere una categoria da associare all'articolo</p>
+    @endif
 
 @endsection
