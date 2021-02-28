@@ -11,6 +11,7 @@ Tag
         <a class="btn btn-primary" href="{{ route('tags.create') }}" role="button">Aggiungi un tag</a>
     </div>
     
+    @if($tags)
     <table class="table">
         <thead>
             <tr>
@@ -72,5 +73,10 @@ Tag
             @endforeach
         </tbody>
     </table>
+    @else
+        <h2>Non ci sono tag nel blog</h2>
+        <p class="lead">Inserisci un tag</p>
+        <a href="{{ route('tags.create') }}" class="btn btn-primary">Inserisci un tag</a>
+    @endif
 
 @endsection

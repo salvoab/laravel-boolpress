@@ -14,7 +14,11 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::all();
+        try {
+            $tags = Tag::all();
+        } catch (\Illuminate\Database\QueryException $e) {
+            $tags = null;
+        }
         return view('tags.index', compact('tags'));
     }
 
