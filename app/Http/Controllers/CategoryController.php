@@ -14,7 +14,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
+        try {
+            $categories = Category::latest()->get();
+        } catch (\Illuminate\Database\QueryException $e) {
+            $categories = null;
+        }
         return view('categories.index', compact('categories'));
     }
 

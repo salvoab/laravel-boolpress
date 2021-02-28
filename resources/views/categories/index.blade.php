@@ -11,6 +11,7 @@ Categorie
         <a class="btn btn-primary" href="{{ route('categories.create') }}" role="button">Aggiungi una categoria</a>
     </div>
     
+    @if($categories)
     <table class="table">
         <thead>
             <tr>
@@ -72,5 +73,10 @@ Categorie
             @endforeach
         </tbody>
     </table>
+    @else
+        <h2>Non ci sono categorie nel blog</h2>
+        <p class="lead">Inserisci una categoria</p>
+        <a class="btn btn-primary" href="{{ route('categories.create') }}">Inserisci una Categoria</a>
+    @endif
 
 @endsection
