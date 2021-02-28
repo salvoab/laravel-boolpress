@@ -10,7 +10,7 @@
         <p class="lead">Scrivi un articolo da inserire nel blog</p>
     </div>
     
-    @if($categories)
+    @if(count($categories) > 0)
 
         @include('partials.errors')
 
