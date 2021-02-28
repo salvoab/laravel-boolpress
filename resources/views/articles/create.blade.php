@@ -10,7 +10,9 @@
         <p class="lead">Scrivi un articolo da inserire nel blog</p>
     </div>
     
-    @if(count($categories) > 0)
+    @if($categories == null || $tags == null)
+        <h2>Impossibile utilizzare il database, contattare l'amministratore di sistema</h2>
+    @elseif(count($categories) > 0)
 
         @include('partials.errors')
 
